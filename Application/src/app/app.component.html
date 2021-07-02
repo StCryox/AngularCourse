@@ -1,0 +1,46 @@
+<div class="game">
+    <div class="opponent">
+      <div class="top">
+
+      <div class="stats">
+        <div class="pokeballs">
+          <div class="pokeball"></div>
+        </div>
+        <div class="hp-count">
+          {{ pokemonBattleService.pokemon2.hp }} 
+        </div>
+        <span class="name">
+          {{ pokemonBattleService.pokemon2.name }} 
+        </span>
+        <span class="level">
+          {{ pokemonBattleService.pokemon1.level }} 
+        </span>
+        </div>
+      </div>
+      <img class="pokemon" src="{{ pokemonBattleService.pokemon2.picture }} " alt="pokemon2"/>
+    </div>
+
+    <div class="player">
+      <img class="pokemon" src="{{ pokemonBattleService.pokemon1.picture }} " alt="pokemon1"/>
+      <div class="stats">
+        <div class="top">
+          <div class="pokeballs">
+            <div class="pokeball"></div>
+          </div>
+          <div class="hp-count">
+            {{ pokemonBattleService.pokemon1.hp }} 
+          </div>
+          <span class="name">
+            {{ pokemonBattleService.pokemon1.name }} 
+          </span>
+          <span class="level">
+            {{ pokemonBattleService.pokemon1.level }} 
+          </span>
+       </div>
+      </div>
+    </div>
+</div>
+
+
+
+
