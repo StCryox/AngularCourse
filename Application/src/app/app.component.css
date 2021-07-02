@@ -1,0 +1,133 @@
+.image{
+  background-color: dodgerblue;
+}
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  margin-bottom: 100px;
+}
+.game {
+  height: 480px;
+  width: 800px;
+  background-image: url('http://bit.ly/pokemonbg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: auto;
+  border: solid;
+  border-color: #111111;
+  border-radius: 10px;
+}
+.opponent{
+  height: 300px;
+  position: relative;
+}
+.opponent .stats {
+  position: absolute;
+  top: 96px;
+  left: 40px;
+  width: 320px;
+}
+.opponent .pokemon {
+   position: absolute;
+   bottom: 0;
+   right: 140px;
+   width: 100px;
+ }
+
+
+.player{
+  height: 180px;
+  position: relative;
+}
+.player .stats {
+   position: absolute;
+   top: 48px;
+   right: 40px;
+   width: 320px;
+ }
+
+.player .pokemon {
+  position: absolute;
+  left: 100px;
+  bottom: 10px;
+  width: 160px;
+}
+.stats {
+  font-family: monospace;
+  background: #111;
+  border: 2px solid black;
+  border-radius: 8px;
+  color: white;
+  padding: 12px;
+}
+.stats .name{
+  font-weight:bold ;
+}
+.stats .hp-count{
+  float: right;
+}
+.stats .hp-count:before{
+  content: 'HP: ';
+}
+.stats .level:before{
+  content: 'LVL: ';
+}
+.stats .pokeballs {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.stats .pokeballs .pokeball {
+  position: relative;
+  float: left;
+  background-image: url('http://bit.ly/pokeballimg');
+  background-size: 100% 100%;
+  width: 25px;
+  height: 25px;
+}
+.box .message{
+  float: left;
+  font-size: 24px;
+  width: 50%;
+}
+.box .actions{
+  float: left;
+  width: 50%;
+}
+.box .actions button {
+  position: relative;
+  float: left;
+  background: #666;
+  border: 3px solid #888;
+  border-radius: 4px;
+  color: #fff;
+  font-family: monospace;
+  font-size: 20px;
+  line-height: 14px;
+  margin: 4px;
+  padding: 16px;
+  width: calc(50% - 8px);
+  height: calc(50% - 8px);
+}
+
+.box .actions button,
+.box .actions button:hover,
+.box .actions button:active {
+  outline: none;
+}
+
+.box .actions button:hover {
+  background: #777;
+  border-color: #999;
+}
+
+.box .actions button:active {
+  background: #555;
+  border-color: #666;
+}
+
+
+
