@@ -5,63 +5,63 @@ import { Pokemon } from '../models/pokemon.model';
   providedIn: 'root'
 })
 export class PokemonBattleService {
-  interval: number = 5_000;
-  loserColor = "red";
-  winnerColor = "green";
+  interval = 5_000;
+  loserColor = 'red';
+  winnerColor = 'green';
   log: string[] = [];
 
-  Pikachu = {
-    name: "Pikachu",
+  Tortank = {
+    name: 'Tortank',
     max_hp: 35,
-    hp: 35,
+    hp: 5,
     attack: 55,
     defense: 40,
-    picture: "http://bit.ly/blastoisegif",
+    picture: 'http://bit.ly/blastoisegif',
     level: 50,
     speed: 90,
     ability: [{
-        name: "Static",
+        name: 'Static',
         power: 28,
         chance: 80,
         hiddenAbility: false
     },
     {
-        name: "Lightning Rod",
+        name: 'Lightning Rod',
         power: 80,
         chance: 30,
         hiddenAbility: true
     }]
-  }
+  };
 
-  Bulbasaur = {
-    name: "Bulbasaur",
-    max_hp: 45,
+  Draco = {
+    name: 'Draco',
+    max_hp: 5,
     hp: 45,
     attack: 49,
     defense: 49,
-    picture: "http://bit.ly/charizardgif",
+    picture: 'http://bit.ly/charizardgif',
     level: 65,
     speed: 45,
     ability: [{
-        name: "Overgrow",
+        name: 'Overgrow',
         power: 10,
         chance: 100,
         hiddenAbility: false
     },
     {
-        name: "Chlorophyll",
+        name: 'Chlorophyll',
         power: 60,
         chance: 30,
         hiddenAbility: true
     }]
-  }
+  };
 
-  pokemon1 = new Pokemon(this.Pikachu);
-  pokemon2 = new Pokemon(this.Bulbasaur);
+  pokemon1 = new Pokemon(this.Tortank);
+  pokemon2 = new Pokemon(this.Draco);
 
   private getFirstPlayerTurnBySpeed(): Pokemon[] {
-    return this.pokemon1.speed >= this.pokemon2.speed 
-    ? [this.pokemon1, this.pokemon2] 
+    return this.pokemon1.speed >= this.pokemon2.speed
+    ? [this.pokemon1, this.pokemon2]
     : [this.pokemon2, this.pokemon1];
   }
 
@@ -74,27 +74,27 @@ export class PokemonBattleService {
   }
 
   private async basicAttack(attacker: Pokemon, defender: Pokemon): Promise<number> {
-    if(this.isDead(defender)){
-        throw new Error("Opponent have 0 HP.");
+    if (this.isDead(defender)){
+        throw new Error('Opponent have 0 HP.');
     }
     defender.hp -= Math.round(attacker.attack * 0.12);
-    if(defender.hp < 0) {
+    if (defender.hp < 0) {
       defender.hp = 0;
     }
     return Math.round(attacker.attack * 0.12);
   }
 
   public async fight(play?: boolean): Promise<void> {
-    let counter: number = 0;
-    let turn: Pokemon[] = this.getFirstPlayerTurnBySpeed();
+    let counter = 0;
+    const turn: Pokemon[] = this.getFirstPlayerTurnBySpeed();
     let attacker: Pokemon = turn[0];
     let defender: Pokemon = turn[1];
     let attkPower: number;
-    
-    while(!this.isDead(attacker) && !this.isDead(defender) && play != false){
+
+    while (!this.isDead(attacker) && !this.isDead(defender) && play != false){
       await this.timer(this.interval);
       attkPower = await this.basicAttack(attacker, defender);
-      this.log.push(attacker.name + " inflige " + attkPower + " de dégâts à " + defender.name + " : " + defender.hp + " HP.");
+      this.log.push(attacker.name + ' inflige ' + attkPower + ' de dégâts à ' + defender.name + ' : ' + defender.hp + ' HP.');
       counter++;
       defender = attacker;
       attacker = turn[counter % 2];
