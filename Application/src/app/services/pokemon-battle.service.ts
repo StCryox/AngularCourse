@@ -13,7 +13,7 @@ export class PokemonBattleService {
   Tortank = {
     name: 'Tortank',
     max_hp: 35,
-    hp: 5,
+    hp: 45,
     attack: 55,
     defense: 40,
     picture: 'http://bit.ly/blastoisegif',

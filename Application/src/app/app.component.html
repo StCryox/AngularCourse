@@ -45,6 +45,8 @@
     </div>
 </div>
 
+<p> Date : {{todayDate | date:'medium': 'fr'}} </p>
+
 <ng-template ngFor [ngForOf]="pokemonBattleService.log" let-log><li> {{ log }}</li></ng-template>
 
 

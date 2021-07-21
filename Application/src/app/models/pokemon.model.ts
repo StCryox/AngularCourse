@@ -12,7 +12,7 @@ export interface IPokemonProps {
         power: number;
         chance: number;
         hiddenAbility: boolean;
-    }[]
+    }[];
 }
 
 export interface IPokemon extends IPokemonProps {
@@ -33,7 +33,7 @@ export class Pokemon implements IPokemon {
         power: number;
         chance: number;
         hiddenAbility: boolean;
-    }[]
+    }[];
 
     constructor(pokemon: IPokemonProps) {
        this.name = pokemon.name;

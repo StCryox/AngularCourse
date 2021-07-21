@@ -8,7 +8,13 @@ import { PokemonBattleService } from './services/pokemon-battle.service';
 })
 export class AppComponent {
   title = 'Pokemon';
- 
+
+  todayNumber: number = Date.now();
+  todayDate: Date = new Date();
+  todayString: string = new Date().toDateString();
+  todayISOString: string = new Date().toISOString();
+
+
   constructor(public pokemonBattleService: PokemonBattleService) {
   }
 
