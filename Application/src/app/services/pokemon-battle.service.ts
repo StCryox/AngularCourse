@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { interval } from 'rxjs';
 import { Pokemon } from '../models/pokemon.model';
 import {DecimalPipe} from "@angular/common";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PokemonBattleService {
+  play: boolean = false;
   interval = 1_000;
-  loserColor = 'red';
-  winnerColor = 'green';
   log: string[] = [];
 
   Tortank = {
@@ -86,20 +85,28 @@ export class PokemonBattleService {
     return Math.round(attacker.attack * 0.12);
   }
 
-  public async fight(play?: boolean): Promise<void> {
+  public async fight(play: boolean): Promise<void> {
+    this.play = play;
     let counter = 0;
     const turn: Pokemon[] = this.getFirstPlayerTurnBySpeed();
     let attacker: Pokemon = turn[0];
     let defender: Pokemon = turn[1];
     let attkPower: number;
 
-    while (!this.isDead(attacker) && !this.isDead(defender) && play != false){
+    while (!this.isDead(attacker) && !this.isDead(defender) && this.play !== false){
+      console.log("Fight " + play);
       await this.timer(this.interval);
       attkPower = await this.basicAttack(attacker, defender);
       this.log.push(attacker.name + ' inflige ' + this.decimalPipe.transform(attkPower, '1.2') + ' de dégâts à ' + defender.name + ' : ' + defender.hp + ' HP.');
       counter++;
       defender = attacker;
       attacker = turn[counter % 2];
+      if(this.isDead(attacker)){
+        console.log(attacker.name + " is dead.");
+      }
+      else if( this.isDead(defender)){
+        console.log(defender.name + " is dead.");
+      }
     }
   }
 

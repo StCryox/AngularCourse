@@ -20,6 +20,6 @@ import {DecimalPipe} from "@angular/common";
     AppRoutingModule
   ],
   providers: [DecimalPipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, PlayButtonComponent, BattleLogComponent]
 })
 export class AppModule { }

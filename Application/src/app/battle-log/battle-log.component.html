@@ -1,1 +1,20 @@
-<p>battle-log works!</p>
+<div class="pokemonText">
+    <p> Date : {{todayDate | date:'medium': 'fr'}} </p>
+    <ng-template ngFor [ngForOf]="pokemonBattleService.log">
+        <ul>
+            <li> {{ pokemonBattleService.log }}</li>
+        </ul>
+    </ng-template>
+    <ng-container>
+      <ng-template [ngIf]="pokemonBattleService.isDead(pokemonBattleService.pokemon2)">
+        <div style="color: red">
+          {{pokemonBattleService.pokemon2.name}} est K.O !
+        </div>
+      </ng-template>
+      <ng-template [ngIf]="pokemonBattleService.isDead(pokemonBattleService.pokemon1)">
+        <div style="color: red">
+          {{pokemonBattleService.pokemon1.name}} est K.O !
+        </div>
+      </ng-template>
+    </ng-container>
+  </div>
