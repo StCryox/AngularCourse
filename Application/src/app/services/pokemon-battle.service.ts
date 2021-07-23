@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { interval } from 'rxjs';
 import { Pokemon } from '../models/pokemon.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonBattleService {
-  interval = 5_000;
+  interval = 1_000;
   loserColor = 'red';
   winnerColor = 'green';
   log: string[] = [];
@@ -69,8 +70,11 @@ export class PokemonBattleService {
     return pokemon.hp == 0 ? true : false;
   }
 
-  private async timer(ms: number): Promise<number> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+  private timer(ms: number): void {
+    
+    
+   
+    //return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   private async basicAttack(attacker: Pokemon, defender: Pokemon): Promise<number> {
@@ -92,12 +96,16 @@ export class PokemonBattleService {
     let attkPower: number;
 
     while (!this.isDead(attacker) && !this.isDead(defender) && play != false){
-      await this.timer(this.interval);
-      attkPower = await this.basicAttack(attacker, defender);
-      this.log.push(attacker.name + ' inflige ' + attkPower + ' de dégâts à ' + defender.name + ' : ' + defender.hp + ' HP.');
-      counter++;
-      defender = attacker;
-      attacker = turn[counter % 2];
+      //this.timer(this.interval);
+      interval(700).subscribe(async () => {
+        attkPower = await this.basicAttack(attacker, defender);
+        this.log.push(attacker.name + ' inflige ' + attkPower + ' de dégâts à ' + defender.name + ' : ' + defender.hp + ' HP.');
+        counter++;
+        defender = attacker;
+        attacker = turn[counter % 2];
+      });
+      
+     
     }
   }
 }
