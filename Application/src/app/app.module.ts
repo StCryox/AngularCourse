@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BattleLogComponent } from './battle-log/battle-log.component';
 import { BattleComponent } from './battle/battle.component';
 import { PlayButtonComponent } from './play-button/play-button.component';
+import {DecimalPipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { PlayButtonComponent } from './play-button/play-button.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { interval } from 'rxjs';
 import { Pokemon } from '../models/pokemon.model';
+import {DecimalPipe} from "@angular/common";
 
 @Injectable({
   providedIn: 'root'
@@ -95,10 +96,13 @@ export class PokemonBattleService {
     while (!this.isDead(attacker) && !this.isDead(defender) && play != false){
       await this.timer(this.interval);
       attkPower = await this.basicAttack(attacker, defender);
-      this.log.push(attacker.name + ' inflige ' + attkPower + ' de dégâts à ' + defender.name + ' : ' + defender.hp + ' HP.');
+      this.log.push(attacker.name + ' inflige ' + this.decimalPipe.transform(attkPower, '1.2') + ' de dégâts à ' + defender.name + ' : ' + defender.hp + ' HP.');
       counter++;
       defender = attacker;
       attacker = turn[counter % 2];
     }
+  }
+
+  constructor(private decimalPipe: DecimalPipe) {
   }
 }

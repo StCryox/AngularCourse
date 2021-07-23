@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonBattleService } from '../services/pokemon-battle.service';
+import {DecimalPipe} from "@angular/common";
 
 @Component({
   selector: 'app-play-button',
@@ -11,15 +12,15 @@ export class PlayButtonComponent implements OnInit {
   play: boolean = false;
   battle_service: PokemonBattleService;
 
-  constructor() { 
-    this.battle_service = new PokemonBattleService();
+  constructor(private decimalPipe: DecimalPipe) {
+    this.battle_service = new PokemonBattleService(decimalPipe);
   }
 
   ngOnInit(): void {
-    
+
   }
 
-  
+
 
   public playGame(): void {
     if(this.play === false){
