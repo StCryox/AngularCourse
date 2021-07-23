@@ -61,12 +61,12 @@
   <ng-container>
     <ng-template [ngIf]="pokemonBattleService.isDead(pokemonBattleService.pokemon2)">
       <div style="color: red">
-        Le {{pokemonBattleService.pokemon2.name}} est K.O !
+        {{pokemonBattleService.pokemon2.name}} est K.O !
       </div>
     </ng-template>
     <ng-template [ngIf]="pokemonBattleService.isDead(pokemonBattleService.pokemon1)">
       <div style="color: red">
-        Le {{pokemonBattleService.pokemon1.name}} est K.O !
+        {{pokemonBattleService.pokemon1.name}} est K.O !
       </div>
     </ng-template>
   </ng-container>

@@ -70,11 +70,8 @@ export class PokemonBattleService {
     return pokemon.hp == 0 ? true : false;
   }
 
-  private timer(ms: number): void {
-    
-    
-   
-    //return new Promise((resolve) => setTimeout(resolve, ms));
+  private timer(ms: number): Promise<number> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   private async basicAttack(attacker: Pokemon, defender: Pokemon): Promise<number> {
@@ -96,16 +93,12 @@ export class PokemonBattleService {
     let attkPower: number;
 
     while (!this.isDead(attacker) && !this.isDead(defender) && play != false){
-      //this.timer(this.interval);
-      interval(700).subscribe(async () => {
-        attkPower = await this.basicAttack(attacker, defender);
-        this.log.push(attacker.name + ' inflige ' + attkPower + ' de dégâts à ' + defender.name + ' : ' + defender.hp + ' HP.');
-        counter++;
-        defender = attacker;
-        attacker = turn[counter % 2];
-      });
-      
-     
+      await this.timer(this.interval);
+      attkPower = await this.basicAttack(attacker, defender);
+      this.log.push(attacker.name + ' inflige ' + attkPower + ' de dégâts à ' + defender.name + ' : ' + defender.hp + ' HP.');
+      counter++;
+      defender = attacker;
+      attacker = turn[counter % 2];
     }
   }
 }
