@@ -83,13 +83,13 @@ describe('PokemonBattleService', () => {
 
   // Async Test
   test('Basic attack from a pokemon', () => {
-    return service.basicAttack(pokemon1, pokemon2).then(data => {
+    return (service as any).basicAttack(pokemon1, pokemon2).then((data: any) => {
       expect(data).toBe(Math.round(pokemon1.attack * 0.12));
     });
   });
 
   const basicAttack = async () => {
-    await service.basicAttack(pokemon1, pokemonDead);
+    await (service as any).basicAttack(pokemon1, pokemonDead);
   };
 
 

@@ -63,7 +63,7 @@ export class PokemonBattleService {
   pokemon1 = new Pokemon(this.Tortank);
   pokemon2 = new Pokemon(this.Draco);
 
-  public getFirstPlayerTurnBySpeed(): Pokemon[] {
+  private getFirstPlayerTurnBySpeed(): Pokemon[] {
     return this.pokemon1.speed >= this.pokemon2.speed
     ? [this.pokemon1, this.pokemon2]
     : [this.pokemon2, this.pokemon1];
@@ -77,7 +77,7 @@ export class PokemonBattleService {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  public async basicAttack(attacker: Pokemon, defender: Pokemon): Promise<number> {
+  private async basicAttack(attacker: Pokemon, defender: Pokemon): Promise<number> {
     if (this.isDead(defender)){
         throw new Error('Opponent have 0 HP.');
     }
