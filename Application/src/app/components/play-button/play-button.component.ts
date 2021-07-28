@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonBattleService } from '../services/pokemon-battle.service';
-import {DecimalPipe} from "@angular/common";
+import { PokemonBattleService } from '../../services/pokemon-battle-service/pokemon-battle.service';
 
 @Component({
   selector: 'app-play-button',

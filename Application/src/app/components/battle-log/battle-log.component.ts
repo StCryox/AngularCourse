@@ -1,6 +1,6 @@
 import { DecimalPipe } from '@angular/common';
 import {Component, Input, OnInit} from '@angular/core';
-import { PokemonBattleService } from '../services/pokemon-battle.service';
+import { PokemonBattleService } from '../../services/pokemon-battle-service/pokemon-battle.service';
 
 @Component({
   selector: 'app-battle-log',
