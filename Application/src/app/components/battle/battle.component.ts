@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PokemonBattleService} from '../../services/pokemon-battle-service/pokemon-battle.service';
 
 @Component({
   selector: 'app-battle',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BattleComponent implements OnInit {
 
-  constructor() { }
+  constructor(public pokemonBattleService: PokemonBattleService) { }
 
   ngOnInit(): void {
   }

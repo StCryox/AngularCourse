@@ -7,13 +7,15 @@ import { BattleLogComponent } from './components/battle-log/battle-log.component
 import { BattleComponent } from './components/battle/battle.component';
 import { PlayButtonComponent } from './components/play-button/play-button.component';
 import {DecimalPipe} from "@angular/common";
+import { ChoosePokemonComponent } from './components/choose-pokemon/choose-pokemon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayButtonComponent,
     BattleLogComponent,
-    BattleComponent
+    BattleComponent,
+    ChoosePokemonComponent
   ],
   imports: [
     BrowserModule,

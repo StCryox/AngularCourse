@@ -1,1 +1,49 @@
-<p>battle works!</p>
+<div class="game">
+  <div class="opponent">
+    <div class="top">
+
+      <div class="stats">
+        <div class="pokeballs">
+          <div class="pokeball"></div>
+        </div>
+        <div class="hp-count">
+          {{ pokemonBattleService.pokemon2.hp }}
+        </div>
+        <span class="name" [ngStyle]="{'color':pokemonBattleService.isDead(pokemonBattleService.pokemon2) == true  ? 'red' : ''}">
+          {{ pokemonBattleService.pokemon2.name }}
+        </span>
+        <span class="level">
+          {{ pokemonBattleService.pokemon1.level }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="!pokemonBattleService.isDead(pokemonBattleService.pokemon2)">
+      <img class="pokemon" src="{{ pokemonBattleService.pokemon2.picture }} " alt="pokemon2"/>
+    </div>
+  </div>
+
+  <div class="player">
+    <div *ngIf="!pokemonBattleService.isDead(pokemonBattleService.pokemon1)">
+      <img class="pokemon" src="{{ pokemonBattleService.pokemon1.picture }} " alt="pokemon1"/>
+    </div>
+    <div class="stats">
+      <div class="top">
+        <div class="pokeballs">
+          <div class="pokeball"></div>
+        </div>
+        <div class="hp-count">
+          {{ pokemonBattleService.pokemon1.hp }}
+        </div>
+        <span class="name" [ngStyle]="{'color':pokemonBattleService.isDead(pokemonBattleService.pokemon1) == true  ? 'red' : ''}">
+            {{ pokemonBattleService.pokemon1.name }}
+          </span>
+        <span class="level">
+            {{ pokemonBattleService.pokemon1.level }}
+          </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-play-button></app-play-button>
+<app-battle-log></app-battle-log>
