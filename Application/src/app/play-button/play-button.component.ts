@@ -10,10 +10,8 @@ import {DecimalPipe} from "@angular/common";
 export class PlayButtonComponent implements OnInit {
 
   play: boolean = false;
-  pokemonBattleService: PokemonBattleService;
 
-  constructor(private decimalPipe: DecimalPipe) {
-    this.pokemonBattleService = new PokemonBattleService(decimalPipe);
+  constructor(public pokemonBattleService: PokemonBattleService) {
   }
 
   ngOnInit(): void {

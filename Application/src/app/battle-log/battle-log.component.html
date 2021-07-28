@@ -1,10 +1,11 @@
 <div class="pokemonText">
     <p> Date : {{todayDate | date:'medium': 'fr'}} </p>
-    <ng-template ngFor [ngForOf]="pokemonBattleService.log">
+
+    <div *ngFor=" let log of pokemonBattleService.log">
         <ul>
-            <li> {{ pokemonBattleService.log }}</li>
+            <li> {{ log }}</li>
         </ul>
-    </ng-template>
+    </div>
     <ng-container>
       <ng-template [ngIf]="pokemonBattleService.isDead(pokemonBattleService.pokemon2)">
         <div style="color: red">

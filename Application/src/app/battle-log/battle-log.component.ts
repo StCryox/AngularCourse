@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { PokemonBattleService } from '../services/pokemon-battle.service';
 
 @Component({
@@ -9,14 +9,13 @@ import { PokemonBattleService } from '../services/pokemon-battle.service';
 })
 export class BattleLogComponent implements OnInit {
 
-  pokemonBattleService: PokemonBattleService;
+
   todayNumber: number = Date.now();
   todayDate: Date = new Date();
   todayString: string = new Date().toDateString();
   todayISOString: string = new Date().toISOString();
 
-  constructor(private decimalPipe: DecimalPipe) {
-    this.pokemonBattleService = new PokemonBattleService(decimalPipe);
+  constructor(public pokemonBattleService: PokemonBattleService) {
   }
 
   ngOnInit(): void {
