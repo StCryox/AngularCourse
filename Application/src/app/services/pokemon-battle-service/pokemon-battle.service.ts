@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
+import {Injectable, NgModule} from '@angular/core';
 import { Pokemon } from '../../models/pokemon.model';
 import {DecimalPipe} from '@angular/common';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 
 export class PokemonBattleService {
   play: boolean = false;
@@ -60,7 +63,7 @@ export class PokemonBattleService {
   pokemon1 = new Pokemon(this.Tortank);
   pokemon2 = new Pokemon(this.Draco);
 
-  private getFirstPlayerTurnBySpeed(): Pokemon[] {
+  public getFirstPlayerTurnBySpeed(): Pokemon[] {
     return this.pokemon1.speed >= this.pokemon2.speed
     ? [this.pokemon1, this.pokemon2]
     : [this.pokemon2, this.pokemon1];
@@ -74,7 +77,7 @@ export class PokemonBattleService {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  private async basicAttack(attacker: Pokemon, defender: Pokemon): Promise<number> {
+  public async basicAttack(attacker: Pokemon, defender: Pokemon): Promise<number> {
     if (this.isDead(defender)){
         throw new Error('Opponent have 0 HP.');
     }
