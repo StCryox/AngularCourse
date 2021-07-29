@@ -1,1 +1,35 @@
-<a [routerLink]="['/battle']">Battle</a>
+<!--<a [routerLink]="['/battle']">Battle</a>-->
+<button (click)="goBattle()">Battle</button>
+<div>
+<h3>Pokemon 1 :</h3>
+  <div>
+    <select class="selectpicker" [(ngModel)]="pokemon1">
+<!--      <option selected>{{pokemon1.name}}</option>-->
+      <option *ngFor="let poke of pokemons" [ngValue]="poke">{{poke.name}}</option>
+
+    </select>
+  </div>
+  <div>
+    <h4>selectionné : {{pokemon1.name}}</h4>
+    <img src="{{pokemon1.picture}}">
+  </div>
+</div>
+
+<div>
+  <h3>Pokemon 2 :</h3>
+  <div>
+    <select class="selectpicker" [(ngModel)]="pokemon2">
+      <!--  <option disabled="disabled" selected>Selectionne ton pokemon</option>-->
+      <option *ngFor="let poke of pokemons" [ngValue]="poke" >{{poke.name}}</option>
+
+    </select>
+  </div>
+  <div>
+    <h4>selectionné : {{pokemon2.name}}</h4>
+    <img src="{{pokemon2.picture}}">
+  </div>
+</div>
+
+
+
+

@@ -16,7 +16,7 @@ export class PokemonBattleService {
 
   Tortank = {
     name: 'Tortank',
-    max_hp: 35,
+    base_experience: 35,
     hp: 45,
     attack: 55,
     defense: 40,
@@ -39,7 +39,7 @@ export class PokemonBattleService {
 
   Draco = {
     name: 'Draco',
-    max_hp: 5,
+    base_experience: 5,
     hp: 45,
     attack: 49,
     defense: 49,
@@ -60,8 +60,10 @@ export class PokemonBattleService {
     }]
   };
 
-  pokemon1 = new Pokemon(this.Tortank);
-  pokemon2 = new Pokemon(this.Draco);
+  pokemon1 = this.Tortank;
+  // new Pokemon(this.Tortank);
+  pokemon2 = this.Draco;
+  // new Pokemon(this.Draco);
 
   private getFirstPlayerTurnBySpeed(): Pokemon[] {
     return this.pokemon1.speed >= this.pokemon2.speed

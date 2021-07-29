@@ -7,9 +7,9 @@ import {NgModule} from '@angular/core';
 
 
 
-const Tortank = {
+const Tortank: Pokemon = {
   name: 'Tortank',
-  max_hp: 35,
+  base_experience: 35,
   hp: 50,
   attack: 55,
   defense: 40,
@@ -30,9 +30,9 @@ const Tortank = {
     }]
 };
 
-const Draco = {
+const Draco: Pokemon = {
   name: 'Draco',
-  max_hp: 5,
+  base_experience: 5,
   hp: 45,
   attack: 49,
   defense: 49,
@@ -53,10 +53,10 @@ const Draco = {
     }]
 };
 
-const pokemon1 = new Pokemon(Tortank);
-const pokemon2 = new Pokemon(Draco);
+const pokemon1 = Tortank;
+const pokemon2 = Draco;
 Tortank.hp = 0;
-const pokemonDead  = new Pokemon(Tortank);
+const pokemonDead  = Tortank;
 
 describe('PokemonBattleService', () => {
   let service: PokemonBattleService;
