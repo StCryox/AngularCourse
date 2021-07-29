@@ -59,9 +59,13 @@ export class PokemonBattleService {
         hiddenAbility: true
     }]
   };
+  pokemon1: any = new Pokemon(this.Tortank);
+  pokemon2: any = new Pokemon(this.Draco);
 
-  pokemon1 = new Pokemon(this.Tortank);
-  pokemon2 = new Pokemon(this.Draco);
+  public setPokemon(pokemon1: any, pokemon2: any){
+    this.pokemon1 = pokemon1;
+    this.pokemon2 = pokemon2;
+  }
 
   private getFirstPlayerTurnBySpeed(): Pokemon[] {
     return this.pokemon1.speed >= this.pokemon2.speed
@@ -69,6 +73,7 @@ export class PokemonBattleService {
     : [this.pokemon2, this.pokemon1];
   }
 
+ 
   public isDead(pokemon: Pokemon): boolean {
     return pokemon.hp == 0 ? true : false;
   }
@@ -114,5 +119,6 @@ export class PokemonBattleService {
   }
 
   constructor(private decimalPipe: DecimalPipe) {
+    
   }
 }
