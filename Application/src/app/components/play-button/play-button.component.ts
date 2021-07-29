@@ -14,6 +14,7 @@ export class PlayButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //this.pokemonBattleService.subscribe(url => console.log('The URL changed to: ' + url));
   }
 
   public playGame(): void {

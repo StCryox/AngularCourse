@@ -8,6 +8,7 @@ import { BattleComponent } from './components/battle/battle.component';
 import { PlayButtonComponent } from './components/play-button/play-button.component';
 import {DecimalPipe} from "@angular/common";
 import { ChoosePokemonComponent } from './components/choose-pokemon/choose-pokemon.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ChoosePokemonComponent } from './components/choose-pokemon/choose-pokem
     PlayButtonComponent,
     BattleLogComponent,
     BattleComponent,
-    ChoosePokemonComponent
+    ChoosePokemonComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
